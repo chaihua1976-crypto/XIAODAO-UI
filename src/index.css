@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@400;500;700&family=DM+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #17100c;
+  --color-dusk: #211712;
+  --color-dusk-2: #2e211a;
+  --color-plaster: #f2e7d7;
+  --color-paper: #faf4ea;
+  --color-oak: #c89a6a;
+  --color-ember: #ffae52;
+  --color-ember-deep: #e2702c;
+  --color-rust: #9a3d1e;
+  --color-rust-deep: #7a2e16;
+  --color-ash: #8b7d72;
+  --color-sea: #33506a;
+
+  --font-serif: 'Noto Serif SC', 'Fraunces', serif;
+  --font-sans: 'Noto Sans SC', system-ui, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, monospace;
+  --font-latin: 'Fraunces', 'Noto Serif SC', serif;
+
+  --ease-space: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-settle: cubic-bezier(0.2, 0.9, 0.25, 1.08);
+
+  --animate-breathe: breathe 2.8s ease-in-out infinite;
+  --animate-ping-once: ping-once 900ms var(--ease-settle) both;
+  --animate-rise: rise 520ms var(--ease-settle) both;
+  --animate-seat-in: seat-in 900ms var(--ease-space) 280ms both;
+  --animate-panel-in: panel-in 560ms var(--ease-settle) both;
+  --animate-step-in: step-in 420ms var(--ease-settle) both;
+  --animate-shake: shake 380ms ease-in-out;
+  --animate-settle: settle 1100ms var(--ease-settle) both;
+  --animate-fade-in: fade-in 600ms ease both;
+
+  @keyframes breathe {
+    0%, 100% { transform: scale(1); opacity: 0.55; }
+    50% { transform: scale(1.9); opacity: 0; }
+  }
+  @keyframes ping-once {
+    0% { transform: scale(0.6); opacity: 0.9; }
+    100% { transform: scale(3.2); opacity: 0; }
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(10px); filter: blur(4px); }
+    to { opacity: 1; transform: none; filter: none; }
+  }
+  @keyframes seat-in {
+    from { opacity: 0; transform: scale(1.12); filter: blur(8px); }
+    to { opacity: 1; transform: none; filter: none; }
+  }
+  @keyframes panel-in {
+    from { opacity: 0; transform: translateY(48px) scale(0.94); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes step-in {
+    from { opacity: 0; transform: translateX(16px); }
+    to { opacity: 1; transform: none; }
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    60% { transform: translateX(5px); }
+    85% { transform: translateX(-2px); }
+  }
+  @keyframes settle {
+    0% { transform: scale(1.9); opacity: 0; }
+    55% { transform: scale(0.92); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+html, body, #root { height: 100%; }
+body {
+  background: var(--color-rust);
+  color: var(--color-plaster);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: var(--color-ember); color: var(--color-ink); }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
